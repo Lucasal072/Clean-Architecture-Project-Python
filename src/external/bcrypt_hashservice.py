@@ -1,8 +1,8 @@
-# from src.usecases.port.interface_hashservice import IHashService
+from src.usecases.port.interface_hashservice import IHashService
 from bcrypt import hashpw, checkpw, gensalt
 
 
-class Bcrypt:
+class Bcrypt(IHashService):
 
     def encript(self, password: str) -> str:
         hashed_password = hashpw(password.encode(), gensalt())
